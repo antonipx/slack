@@ -8,11 +8,10 @@ import re
 import time
 from slackclient import SlackClient
 
-source_channel_name="px-support-sync"
-channels_re=".*-(premium|support)$"
-#channels_re="px-support-sync"
+source_channel_name="support-internal"
+channels_re=".*-(premium|support|supp)$"
 
-kf=open("apikey", "r")
+kf=open(".apikey", "r")
 apitok=kf.readline().rstrip()
 kf.close()
 

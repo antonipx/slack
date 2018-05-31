@@ -11,7 +11,7 @@ from slackclient import SlackClient
 source_channel_name="support-internal"
 channels_re=".*-(premium|support)$"
 
-kf=open("apikey", "r")
+kf=open(".apikey", "r")
 apitok=kf.readline().rstrip()
 kf.close()
 
@@ -34,7 +34,7 @@ for c in chan['channels']:
 
 src=sc.api_call("conversations.members", channel=src_id, limit=1000)
 
-# sync members for matching channels
+# delete members from matching channels
 chan=sc.api_call("conversations.list", exclude_archived=1, limit=1000, types="public_channel,private_channel")
 for c in chan['channels']:
     if re.match(channels_re, c['name']) or c['name'] == source_channel_name:

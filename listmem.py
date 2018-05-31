@@ -7,7 +7,7 @@ import sys
 import re
 from slackclient import SlackClient
 
-kf=open("apikey", "r")
+kf=open(".apikey", "r")
 apitok=kf.readline().rstrip()
 kf.close()
 
